@@ -1,0 +1,61 @@
+# Findings — Supplier Performance & Lead-Time Analysis (Northwind SQL Project)
+
+## Objective
+Evaluate supplier performance in the Northwind PostgreSQL database by measuring the **average lead time** (required_date – order_date) by supplier.  
+The goal is to identify which suppliers pose the greatest risk of delayed fulfillment and where improvement opportunities exist.
+
+---
+
+## Key Results
+
+| Supplier | Avg Lead Time (Days) | Performance |
+|----------|----------------------|-------------|
+| **Tokyo Traders** | **26.35** |  Best performance |
+| **PB Knäckebröd AB** | **28.82** |  Slowest performance |
+
+---
+
+## Insights
+
+### 1️. Lead times are consistently long across all suppliers
+- The difference between the best and worst supplier performance is only ~2.5 days.
+- This indicates **system-level delays**, not an isolated problem with a single vendor.
+
+### 2️. Supplier behavior still affects operational risk
+- Tokyo Traders is the **fastest** and offers the **lowest fulfillment risk**.
+- PB Knäckebröd AB has the **slowest** average lead time and creates the **highest risk of delay**.
+
+### 3️. Improvement strategy should be broad rather than vendor-specific
+Because all suppliers are slow, replacing or punishing a single vendor would not resolve the underlying issue.  
+Improvement should focus on:
+
+- Shipment coordination
+- Production planning
+- Supplier communication cycle
+- Delivery-time expectations in contracts
+
+Note: The northwind dataset is fictitious. Hence, the values for the required_date and order_date are probably randomly generated. This is probably the reason why all of the lead times are so similar. Everything contained in this project is for illustrative purposes only. 
+
+### 4. KPIs can be used to drive improvement
+A simple tiering system (Excellent / Acceptable / Needs Improvement) makes lead-time performance measurable and easy to communicate to leadership.
+
+---
+
+## Recommended Actions (Business Proposal Perspective)
+- Introduce a **lead-time KPI** for all suppliers and monitor it monthly.
+- Share **forecast expectations** with vendors to improve planning on both sides.
+- Consider **incentives or penalties** tied to delivery-time performance.
+- Use SQL analysis on a quarterly basis to confirm whether lead time improves over time.
+
+---
+
+## Technical Summary
+- **Database:** PostgreSQL — Northwind sample database
+- **Tables used:** suppliers, products, order_details, orders
+- **SQL concepts demonstrated:**  
+  `SELECT`, `JOIN`, `GROUP BY`, `ORDER BY`, calculated fields (date difference), and `CASE` for performance ratings
+
+---
+
+## Status
+Project complete and actively maintained for portfolio use.
