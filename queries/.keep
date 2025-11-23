@@ -76,8 +76,8 @@ ORDER BY avg_lead_time_days;
 SELECT s.company_name,
        ROUND(AVG(o.required_date - o.order_date), 2) AS avg_lead_time_days,
        CASE
-           WHEN AVG(o.required_date - o.order_date) <= 5 THEN 'Excellent'
-           WHEN AVG(o.required_date - o.order_date) BETWEEN 5 AND 8 THEN 'Acceptable'
+           WHEN AVG(o.required_date - o.order_date) BETWEEN 26 AND 27 THEN 'Excellent'
+           WHEN AVG(o.required_date - o.order_date) BETWEEN 27 AND 28 THEN 'Acceptable'
            ELSE 'Needs Improvement'
        END AS performance_rating
 FROM suppliers s
