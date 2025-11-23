@@ -1,30 +1,63 @@
 # Supplier Performance & Lead-Time Analysis — Northwind SQL Project
 
-This portfolio project analyzes supplier performance in the Northwind database using SQL.  
-The goal is to evaluate average lead time per supplier and determine where delays are occurring.
+This portfolio project analyzes supplier performance in the **Northwind PostgreSQL sample database** using SQL.  
+The goal is to evaluate how supplier behavior affects fulfillment speed and operational risk by measuring **average lead time** (required_date – order_date) for each supplier.
+
+---
 
 ## Business Questions
-- Which suppliers provide the most products?
-- Which suppliers are fastest in fulfillment?
-- Which suppliers create the highest risk of delayed delivery?
+This project answers four practical questions relevant to supply chain and procurement roles:
+
+1. Who are the suppliers Northwind works with?
+2. Which suppliers provide the most product variety?
+3. Which suppliers deliver the fastest vs. slowest (average lead time)?
+4. How can suppliers be grouped into performance tiers using business logic?
+
+---
 
 ## Skills Demonstrated
-- SELECT, JOIN, GROUP BY, ORDER BY
-- Calculated fields (lead time)
-- Business-logic rating using CASE statements
-- Clear communication of insights
+| Category | Skills |
+|----------|--------|
+| SQL Fundamentals | SELECT, JOIN, WHERE, ORDER BY |
+| Aggregation | GROUP BY, COUNT, AVG |
+| Calculated Fields | Date arithmetic (lead-time measurement) |
+| Business Logic | CASE expressions to convert numbers into ratings |
+| Communication | Translating query results into actionable insights |
 
-## Dataset
-PostgreSQL Northwind sample database
+---
 
-## Deliverables
-| File | Purpose |
-|------|---------|
-| `queries.sql` | Complete SQL script for the project |
-| `findings.md` | Business interpretation of results |
-| `screenshots/` | Proof of executed SQL queries |
+## Database
+- **Engine:** PostgreSQL  
+- **Schema Style:** lowercase `snake_case` (e.g., `supplier_id`, `order_date`, `order_details`)  
+- **Tables Used:** `suppliers`, `products`, `orders`, `order_details`
+
+---
 
 ## Summary of Findings
-- Best supplier: **Tokyo Traders — 26.35 days**
-- Worst supplier: **PB Knäckebröd AB — 28.82 days**
-- Lead-time differences across suppliers are small, suggesting structural supply chain delays rather than vendor-specific issues.
+| Supplier | Avg Lead Time (Days) | Performance |
+|----------|----------------------|-------------|
+| **Tokyo Traders** | **26.35** | Lowest Average lead-time |
+| **PB Knäckebröd AB** | **28.82** | Highest Average lead-time |
+
+### Interpretation
+- Lead times across suppliers are **consistently long**, suggesting a **system-wide delay** rather than failure by a single vendor.
+- Improving fulfillment speed will likely require **process improvements across suppliers**, not replacement of just one.
+- Suppliers could be managed using **delivery-time KPIs** tied to expectations or incentives for performance.
+
+---
+
+## Project Files
+| File | Description |
+|------|-------------|
+| `queries.sql` | Full SQL script with comments explaining each step |
+| `findings.md` | Business interpretation of SQL results |
+| `screenshots/` | Screenshots showing executed queries + result sets |
+
+---
+
+## Screenshots
+```markdown
+![Supplier List](screenshots/01_query_supplier_list.png)
+![Product Count per Supplier](screenshots/02_query_supplier_product_count.png)
+![Average Lead Time](screenshots/03_average_lead_time.png)
+![Supplier Performance Ratings](screenshots/04_supplier_ratings.png)
