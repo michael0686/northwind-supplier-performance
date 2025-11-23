@@ -90,14 +90,5 @@ JOIN orders o
 GROUP BY s.company_name
 ORDER BY avg_lead_time_days;
 
-
-
-/* ---------------------------------------------------------------
-   End of script
-   Suggested GitHub repository structure:
-       /queries.sql
-       /findings.md
-       /screenshots/
-       /README.md
-   --------------------------------------------------------------- */
+   --------------------------------------------------------------- /*
 
